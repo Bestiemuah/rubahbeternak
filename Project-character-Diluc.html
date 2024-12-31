@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--import-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <!--tab-->
+        <title>BLOG NAME | PROJECT NAME</title>
+        <style>
+            /*ROOT*/
+            :root{
+                /**color-palette**/
+                --place-holder-gray:#90877D;
+                --color-background:#E8D1A7;
+                --color-background-hover: #E6B45D;
+                --color-main:#84592C;
+                --color-main-hover: #7B4925;
+                --color-accent:#442D1D;
+                --color-accent-hover:#F78941;
+                --color-putih: #E0E5DF;
+                --color-kelabu:#514d47;
+                --color-hitam: #221D1A;
+                /**font**/
+                --font-umum: 'Dubai Regular', sans-serif;
+                --font-umummedium: 'Dubai Medium', sans-serif;
+                --font-title: 'Tw Cen MT Std Semi Medium', sans-serif;
+                --font-handwriting: 'Indie Flower', cursive;
+                /***font-size***/
+                --duabelas-pt:1rem;
+                --limabelas-pt: 1.25rem;
+                --duapuluh-pt: 1.667rem;
+            }
+            /*STYLING*/
+            html, body{
+                background-color: var(--color-background);
+                font-family: var(--font-umum);
+                margin:0;
+                padding:0;
+                height:100%;
+                width:100%;
+                overflow: hidden;
+                user-select: none;
+            }
+            button, a {
+                cursor: pointer;
+            }
+            a{
+                text-decoration: none;
+                color: var(--color-main-hover);
+            }
+            img, .header-image, .box-photo, .char-display, .profile-pic {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+            /**SCROLL BAR**/
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            /**scrollbar handle**/
+            ::-webkit-scrollbar-thumb {
+                background: var(--color-accent);
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--color-accent-hover);
+            }
+            /**NAVIGATION**/
+            nav {
+                background-color: var(--color-main);
+            }
+            nav button{
+                background-color: transparent;
+                border: none;
+                color:var(--color-background);
+            }
+            /***Top-Nav***/
+            .top-nav {
+                display: flex;
+                height: 8.628%;
+                width: 100%;
+            }
+            .menu {
+                justify-items: center;
+            }
+            .menu-button{
+                font-size: var(--duapuluh-pt);
+                margin-left: 10px;
+            }
+            .top-nav-menu{
+                display: flex;
+                margin-left:50px;
+            }
+            .top-nav-menu button{
+                font-size: var(--limabelas-pt);
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                padding: 0 15px;
+                margin: 0 50px;
+                margin-top: 5px;
+            }
+            /****hover****/
+            .top-nav-menu button:hover{
+                background-color: var(--color-main-hover);
+                font-weight: bold;
+            }
+            /****active****/
+            .top-nav-menu button.active{
+                background-color: var(--color-background);
+                color:var(--color-main);
+                font-weight: bold;
+            }
+            /****project-name****/
+            .project-name{
+                width:22%;
+                height:100%;
+                margin-left:30px;
+                display: flex;
+                color: #733015;
+                opacity: 40%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow:hidden;
+            }
+            .icon{
+                margin-top: 10px;
+                width:25%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30pt;
+            }
+            .project-title{
+                font-family: var(--font-title);
+                font-stretch: condensed;
+                font-size: var(--duapuluh-pt);
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            /***SideNav***/
+            .sidenav{
+                height:100%;
+                width:17.2%;
+                position:fixed;
+                top:0;
+                left:0;
+                z-index:1000;
+                text-align: center;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .sidenav.active{
+                transform: translateX(0);
+            }
+            .profile-pic{
+                max-width: 80px;
+                height: auto;
+                border-radius: 50%;
+                margin-bottom: -12.426%;
+                margin-top:12.426%;
+                margin-left:70px;
+            }
+            .blog-name{
+                color: var(--color-putih);
+                font-family: var(--font-title);
+                font-size: var(--limabelas-pt);
+                letter-spacing: 0.167rem;
+                text-transform: uppercase;
+                font-stretch: condensed;
+                margin-top: 13.806%;
+                margin-bottom: -4.602%;
+            }
+            .blog-description {
+                color: var(--color-background-hover);
+                font-family: var(--font-umummedium);
+                font-size: var(--dua-belas-pt);
+                text-align: center;
+                margin-bottom: 6%;
+                padding: 0 6.903%;
+                line-height:95%;
+                letter-spacing: 1px;
+            }
+            hr.solid {
+                border:0;
+                border-top:1.5px solid var(--color-main-hover);
+                height:0;
+                box-shadow: none;
+                width: 85%;
+                margin: 3px 20px;
+            }
+            /****search-bar****/
+            .sidenav .search-bar{
+                width:100%;
+                padding: 2px;
+            }
+            .sidenav input[type=text] {
+                width:70%;
+                padding: 1px;
+                padding-left: 3px;
+                font-size: 1.063rem;
+                border: 2px solid var(--color-accent);
+                color: var(--color-kelabu);
+                font-family: var(--font-umum);
+                font-size: var(--dua-belas-pt);
+                margin-right: -6px;
+            }
+            .sidenav .search-bar button {
+                padding: 5.65px;
+                padding-bottom: 7.15px;
+                background: var(--color-accent);
+                font-size: 1.063rem;
+            }
+            /****to-page****/
+            .topage, .topagemore{
+                font-family: var(--font-umummedium);
+                font-size: var(--lima-belas-pt);
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .topage {
+                border:3px solid var(--color-background);
+                width:85%;
+                margin: 5px;
+                display:flex;
+            }
+            .topage-icon{
+                width:25%;
+                font-size: var(--limabelas-pt);
+            }
+            .topage .projek, .topagemore .projek{
+                width:78%;
+                text-align: left;
+                padding-left:5px;
+                padding-top:4px
+            }
+            .topage:hover{
+                background-color: var(--color-putih);
+                box-shadow: 0 5px 15px var(--color-main-hover);
+                border:none;
+                color:var(--color-kelabu);
+                margin-bottom: 10px;
+            }
+            .topage:hover i, .topage:hover span {
+                color:var(--color-main-hover);
+            }
+            /****more button****/
+            .button-container {
+                position: relative;
+                width: 100%;
+                justify-items: center;
+            }
+            .more-buttons{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 90%;
+            }
+            .topagemore{
+                display: flex;
+                background-color: var(--color-putih);
+                border: none;
+                color:var(--color-kelabu);
+                width: 160%;
+                height:82.265%;
+            }
+            .topagemore:hover{
+                background-color: var(--color-accent-hover);
+                color:var(--color-putih);
+            }
+            .topage:hover + .more-buttons,
+            .more-buttons:hover {
+                display: block;
+            }
+            .button-container:hover .topage {
+                background-color: var(--color-putih);
+                box-shadow: 0 5px 15px var(--color-button-hover);
+                border: none;
+                color: var(--color-kelabu);
+            }
+
+            .button-container:hover .topage, 
+            .more-buttons:hover + .topage {
+                background-color: var(--color-putih);
+                box-shadow: 0 5px 15px var(--color-main-hover);
+                border: none;
+                color: var(--color-kelabu);
+            }
+
+            /****mini menu****/
+            .minimenu i{
+                color:var(--color-putih);
+                font-size:var(--dua-puluh-pt);
+                margin:10px;
+                font-size: var(--duapuluh-pt);
+            }
+            .minimenu i:hover{
+               text-shadow: 1px 1px 5px var(--color-main-hover);
+            }
+            /***Overlay***/
+            .overlay{
+                position: fixed;
+                top:0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                display: none;
+                z-index: 999;
+            }
+            .overlay.active{
+                display: block;
+            }
+            /**MAIN**/
+            main{
+                height:91.372%;
+                width:100%;
+                overflow-y: auto;
+            }
+            .section{
+                height: 100%;
+                display: block;
+            }
+            /***HEADER***/
+            .header-image{
+                height:85.691%;
+                background-color: var(--place-holder-gray);
+                position: relative;
+                overflow: hidden;
+            }
+            .background-img{
+                z-index:1;
+                object-fit: cover;
+                position: absolute;
+            }
+            /***POST***/
+            .title-container{
+                width: 84%;
+                margin:19px 96px;
+                padding-left: 10px;
+                background-color: var(--color-main);
+                color: var(--color-background);
+                letter-spacing: 5px;
+                font-weight: 400;
+                font-size: var(--duapuluh-pt);
+            }
+            .text-container{
+                margin-top: -15px;
+                font-size: var(--limabelas-pt);
+            }
+            .text-container li{
+                padding-left:10px;
+            }
+            .text-container li:hover{
+                background-color: var(--color-background-hover);
+                color: var(--color-accent);
+            }
+            li::marker{
+                color:var(--color-main-hover);
+                content:"◈ ";
+            }
+            /***CHARACTER***/
+            .kotak-sebelah, .char-display {
+                position: relative;
+                z-index: 2;
+            }
+            #characters .header-image{
+                height:95%;
+                display: flex;
+            }
+            .kotak-sebelah{
+                height: 100%;
+                width: 43%;
+                margin-left:120px;
+            }
+            .kotak-deskripsi{
+                height:60%;
+                width:100%;
+                position:relative;
+            }
+            .char-name{
+                font-size: 25pt;
+                font-family: var(--font-umummedium);
+                color:var(--color-putih);
+                text-shadow:  0 5px 10px var(--color-kelabu);
+                padding: 0 20px;
+            }
+            .char-desc{
+                background-color: rgba(0, 0, 0, 0.3);
+                margin: 0 40px;
+                margin-top: -10px;
+                color: var(--color-putih);
+                padding: 10px;
+            }
+            .read-more-char{
+                background-color: var(--color-putih);
+                position:absolute;
+                right:40px;
+                margin-top: 10px;
+                border: none;
+                padding:2px 5px;
+                color:var(--color-kelabu);
+                font-family: var(--font-umummedium);
+                font-size: var(--duabelas-pt);
+            }
+            .read-more-char:hover{
+                border: none;
+                box-shadow: 0 5px 15px var(--color-main-hover);
+            }
+            .char-scroll{
+                height:35%;
+                width:100%;
+                display: flex;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+            }
+            .char-maman{
+                height:85%;
+                width:100%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+            }
+            .char-container{
+                display:flex;
+                gap:20px;
+                flex:1;
+                justify-content: flex-start;
+                transition: transform 0.3s ease-in-out;
+                min-width: 100%;
+            }
+            .arrow {
+                font-size: 22pt;
+                background-color: transparent;
+                border: none;
+                color:var(--color-putih);
+                z-index:10;
+            }
+            .arrow i{
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .arrow i:hover{
+                color: rgba(255, 255, 255, 0.5);
+            }
+            .char-box{
+                width:21.75%;
+                height:95%;
+                box-shadow:6px 0px 10px rgba(0, 0, 0, 0.5);
+                border: 2px solid var(--color-background);
+                border-radius: 5px;
+                cursor: pointer;
+                flex: 0 0 21%;
+                box-sizing: border-box;
+            }
+            .box-photo{
+                background-color: rgba(0, 0, 0, 0.3);
+                width:100%;
+                height:75%;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+                display:flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+            }
+            .box-photo img{
+                width:100%;
+                height:auto;
+            }
+            .box-name{
+                background-color: var(--color-background);
+                width:100%;
+                height:25%;
+                text-align: center;
+                align-content: center;
+                color: var(--color-main);
+                font-size: var(--limabelas-pt);
+                text-transform: uppercase;
+            }
+            .char-box.active {
+                background-color: rgba(0, 0, 0, 0.5);
+                border: 2px solid var(--color-main);
+            }
+            .box-name.active {
+                background-color: var(--color-main);
+                color: var(--color-background);
+                font-family: var(--font-umummedium);
+            }
+            .char-display{
+                width:40%;
+                height:100%;
+                margin-left: 40px;
+            }
+            .char-display img{
+                width:auto;
+                height:100%;
+            }
+            /****appearance****/
+            .container{
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                margin:0px 96px;
+                margin-top: -15px;
+            }
+            .text-container{
+                font-size: var(--limabelas-pt);
+                width: 100%;
+            }
+            .post-container{
+                justify-content: center;
+                padding: 0;
+                height: 100%;
+                margin: 0 100px;
+            }
+            .photo-gallery {
+                column-gap: 20px;
+                column-count: 4;
+            }
+            .post-box{
+                box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.5);
+                display: inline-block;
+                margin-bottom: 20px;
+                cursor: pointer;
+            }
+            .post-image img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                box-sizing: border-box;
+                border: 10px solid #E0E4E3;
+                border-top: 30px solid #E0E4E3; 
+            }
+            .post-date{
+                background-color: #E0E4E3;
+                width:100%;
+                height:60px;
+                font-family: var(--font-handwriting);
+                font-size: var(--duapuluh-pt);
+                color: var(--color-hitam);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @media(max-width:768px){
+                .photo-gallery{
+                    flex-direction: column;
+                }
+            }
+            /****pop up****/
+            .popup {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 20px;
+                padding-bottom: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+                margin: 5px 0;
+            }
+            
+            .popup-content img {
+                max-width: 100%;
+                max-height: 85vh;
+                cursor: zoom-in;
+            }
+            .popup-content img.zoomed {
+                transform: scale(2);
+                cursor: zoom-out;
+                background: #fff;
+                padding: 20px;
+                padding-bottom: 10px;
+            }
+            .go-ori-post {
+                border:none;
+                background-color: transparent;
+                width: 100%;
+                margin-top: 10px;
+                font-size: var(--duabelas-pt);
+                color: var(--color-main-hover);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="overlay" id="overlay"></div>
+        <nav class="sidenav" id="sidenav">
+            <a href="index.html"><img src="avatar.png" alt="Profile Picture" class="profile-pic" /></a>
+            <h1 class="blog-name">RUBAH BETERNAK</h1>
+            <p class="blog-description">Sayangnya pemilik blog bukanlah seekor rubah maupun seorang peternak.</p>
+            <hr class="solid">
+            <!--search bar-->
+            <div class="search-bar">
+                <form action="/search" method="get">
+                    <input type="text" placeholder="SEARCH" name="search">
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            <!--search bar-->
+            <hr class="solid">
+            <div class="menu">
+                <button class="topage" onclick="window.location.href=''">
+                    <div class="topage-icon"><i class="fa-solid fa-house"></i></div>
+                    <div class="projek">HOME</div>
+                </button>
+                <button class="topage" onclick="window.location.href=''">
+                    <div class="topage-icon"><i class="fa-solid fa-city"></i></div>
+                    <div class="projek">BRYA AIMA</div>
+                </button>
+                <button class="topage" onclick="window.location.href=''">
+                    <div class="topage-icon"><i class="fa-solid fa-building"></i></div>
+                    <div class="projek">ADJACENT</div>
+                </button>
+                <div class="button-container">
+                    <button class="topage" onclick="window.location.href=''">
+                        <div class="topage-icon"><i class="fa-solid fa-ellipsis"></i></i></div>
+                        <div class="projek">MORE</div>
+                    </button>
+                    <div class="more-buttons">
+                        <button class="topagemore" onclick="window.location.href=''">
+                            <div class="topage-icon"><span>&#10024;&#xfe0e;</span></div>
+                            <div class="projek">TWEK</div>
+                        </button>
+                        <button class="topagemore" onclick="window.location.href=''">
+                            <div class="topage-icon"><span>&#127893;&#xfe0e;</span></div>
+                            <div class="projek">LELUZIM</div>
+                        </button>
+                        <button class="topagemore" onclick="window.location.href=''">
+                            <div class="topage-icon"><i class="fa-solid fa-users"></i></div>
+                            <div class="projek">4 PEOPLE</div>
+                        </button>
+                        <button class="topagemore" onclick="window.location.href=''">
+                            <div class="topage-icon"><i class="fa-solid fa-scroll"></i></div>
+                            <div class="projek">PROPHECY</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="minimenu">
+                    <a href="/archive"><i class="fa-solid fa-folder-open"></i></a>
+                    <a href="/ask"><i class="fa-solid fa-comments"></i></a>
+                </div>
+            </div>  
+        </nav>
+        <nav class="top-nav">
+            <button class="menu-button" id="menu-button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="top-nav-menu">
+                <button class="not-menu-button" onclick="location.href='Project-home.html'">HOME</button>
+                <button class="not-menu-button active"  onclick="location.href='Project-character-Diluc.html'">CHARACTERS</button>
+                <button class="not-menu-button" onclick="location.href='Project-media.html'">MEDIA</button>
+                <button class="not-menu-button" onclick="location.href='Project-archive.html'">ARCHIVE</button>
+            </div>
+            <div class="project-name">
+                <div class="icon"><i class="fa-solid fa-building"></i></div>
+                <div class="project-title">ADJACENT</div>
+            </div>
+        </nav>
+        <main>
+            <!--characters-->
+            <div id="characters" class="section">
+                <div class="header-image">
+                    <img src="background.jpg" alt="Character Background" class="background-img">
+                    <div class="kotak-sebelah">
+                        <div class="kotak-deskripsi">
+                            <div class="char-name">DILUC</div>
+                            <div class="char-desc">As the wealthiest gentleman in Mondstadt, the ever-dapper Diluc always presents himself as the epitome of perfection. But behind the courteous visage burns a zealous soul that has sworn to protect Mondstadt at all costs, allowing him to mercilessly vanquish all who threaten his city.</div>
+                            <button class="read-more-char" onclick="window.location.href='Index-character.html'">READ MORE</button>
+                        </div>
+                        <div class="char-scroll">
+                            <button class="arrow" id="scroll-left"><i class="fa-solid fa-angles-left"></i></button>
+                            <div class="char-maman">
+                                <div class="char-container">
+                                    <div class="char-box" data-index="0">
+                                        <div class="box-photo"><img src="diluc.png"></div>
+                                        <div class="box-name">Diluc</div>
+                                    </div>
+                                    <div class="char-box">
+                                        <div class="box-photo"><img src="barbara.png"></div>
+                                        <div class="box-name">Barbara</div>
+                                    </div>
+                                    <div class="char-box">
+                                        <div class="box-photo"><img src="jean.png"></div>
+                                        <div class="box-name">Jean</div>
+                                    </div>
+                                    <div class="char-box">
+                                        <div class="box-photo"><img src="lawrence.png"></div>
+                                        <div class="box-name">Eula</div>
+                                    </div>
+                                    <div class="char-box">
+                                        <div class="box-photo"><img src="kaeya.png"></div>
+                                        <div class="box-name">Kaeya</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="arrow" id="scroll-right"><i class="fa-solid fa-angles-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="char-display">
+                        <img src="character.png">
+                    </div>
+                </div>
+                <h1 class="title-container">appearance</h1>
+                <div class="container">
+                    <div class="text-container">
+                        <ul>
+                            <a href=""><li href="">Appearance 1</li></a>
+                            <a href=""><li href="">Appearance 2</li></a>
+                        </ul>
+                    </div>
+                    <div class="text-container">
+                        <ul>
+                            <a href=""><li href="">Appearance 1</li></a>
+                            <a href=""><li href="">Appearance 2</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <h1 class="title-container">gallery</h1>
+                <div class="post-container">
+                    <div class="photo-gallery">
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1733126916745-ae6453f1fe4e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">19.12.24</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://plus.unsplash.com/premium_photo-1734439978522-fad9174add41?q=80&w=2021&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">20.01.23</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1702884163621-ded464345868?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">18.12.20</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1702884163621-ded464345868?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">18.12.20</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1719937206590-6cb10b099e0f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">17.08.45</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1734014938037-8b5bd9ea77fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">12.08.02</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1734188515104-5f036a02f551?q=80&w=1959&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">26.12.04</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://plus.unsplash.com/premium_photo-1734354800644-0431f33c5471?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">21.03.08</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1734187424233-01cf42b1da79?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">16.06.19</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://images.unsplash.com/photo-1734487797924-822d3b1b87ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">31.12.89</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://plus.unsplash.com/premium_photo-1683910767532-3a25b821f7ae?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">15.07.13</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://plus.unsplash.com/premium_photo-1669357657874-34944fa0be68?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">29.02.14</div>
+                        </div>
+                        <div class="post-box">
+                            <div class="post-image"><img src="https://plus.unsplash.com/premium_photo-1661963063875-7f131e02bf75?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></div>
+                            <div class="post-date">21.03.06</div>
+                        </div>
+                </div>
+                </div>
+            </div>
+        </main>
+        <div id="popup" class="popup">
+            <div class="popup-content" id="popup-content"></div>
+            <button class="go-ori-post">Visit Original Post &raquo;</button>
+        </div>
+        <script>
+            //sidenav toggle
+            const menuButton = document.getElementById('menu-button');
+            const sidenav = document.getElementById('sidenav');
+            const overlay = document.getElementById('overlay');
+            menuButton.addEventListener('click', () => {
+                sidenav.classList.toggle('active');
+                overlay.classList.toggle('active');
+            });
+            overlay.addEventListener('click', () => {
+                sidenav.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            //scroll
+            const charContainer = document.querySelector('.char-container');
+            const scrollLeft = document.getElementById('scroll-left');
+            const scrollRight = document.getElementById('scroll-right');
+
+            const boxWidth = charContainer.querySelector('.char-box').offsetWidth + 17;
+            const totalBoxes = charContainer.children.length;
+
+            let currentScrollIndex = 0;
+
+            function updateArrowVisibility() {
+                scrollLeft.style.visibility = currentScrollIndex === 0 ? 'hidden' : 'visible';
+                scrollRight.style.visibility = (currentScrollIndex + Math.floor(charContainer.offsetWidth / boxWidth)) >= totalBoxes
+                    ? 'hidden'
+                    : 'visible';
+            }
+
+            // Scroll Left
+            scrollLeft.addEventListener('click', () => {
+                if (currentScrollIndex > 0) {
+                    currentScrollIndex--;
+                    charContainer.style.transform = `translateX(-${currentScrollIndex * boxWidth}px)`;
+                }
+                updateArrowVisibility();
+            });
+
+            // Scroll Right
+            scrollRight.addEventListener('click', () => {
+                const maxVisibleBoxes = Math.floor(charContainer.offsetWidth / boxWidth);
+                const maxScrollIndex = totalBoxes - maxVisibleBoxes;
+
+                if (currentScrollIndex < maxScrollIndex) {
+                    currentScrollIndex++;
+                    charContainer.style.transform = `translateX(-${currentScrollIndex * boxWidth}px)`;
+                }
+                updateArrowVisibility();
+            });
+
+            updateArrowVisibility();
+
+            //preserve scroll state
+            document.querySelectorAll('.char-box').forEach((box, index) => {
+    box.addEventListener('click', () => {
+        // Store scroll position in localStorage
+        localStorage.setItem('scrollIndex', currentScrollIndex);
+
+        // Redirect to the new page
+        const charName = box.querySelector('.box-name').textContent.trim();
+        window.location.href = `Project-character-${charName}.html`;
+    });
+});
+window.addEventListener('DOMContentLoaded', () => {
+    const storedIndex = localStorage.getItem('scrollIndex');
+    if (storedIndex !== null) {
+        currentScrollIndex = parseInt(storedIndex, 10);
+        charContainer.style.transform = `translateX(-${currentScrollIndex * boxWidth}px)`;
+    }
+
+    updateArrowVisibility();
+});
+window.addEventListener('DOMContentLoaded', () => {
+    const currentChar = window.location.pathname.split('-').pop().replace('.html', '');
+    document.querySelectorAll('.char-box').forEach((box) => {
+        const charName = box.querySelector('.box-name').textContent.trim().toLowerCase();
+        if (charName === currentChar.toLowerCase()) {
+            box.classList.add('active');
+            box.querySelector('.box-name').classList.add('active');
+        }
+    });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    const storedIndex = localStorage.getItem('scrollIndex');
+    if (storedIndex !== null) {
+        const charContainer = document.querySelector('.char-container');
+        const boxWidth = charContainer.querySelector('.char-box').offsetWidth + 17; // Include margin
+
+        // Temporarily disable transition
+        charContainer.style.transition = 'none';
+
+        // Restore scroll position
+        const currentScrollIndex = parseInt(storedIndex, 10);
+        charContainer.style.transform = `translateX(-${currentScrollIndex * boxWidth}px)`;
+
+        // Re-enable transition after positioning
+        setTimeout(() => {
+            charContainer.style.transition = ''; // Reset to original CSS transition
+        }, 0);
+    }
+
+    // Update arrow visibility
+    updateArrowVisibility();
+});
+
+            //pop up with zoom functionality
+const popup = document.getElementById('popup');
+const popupContent = document.getElementById('popup-content');
+
+function showPopup(content) {
+    popupContent.innerHTML = content;
+    popup.style.display = 'block';
+    overlay.classList.add('active');
+    const img = popupContent.querySelector('img');
+    if (img) {
+        img.addEventListener('click', () => {
+            img.classList.toggle('zoomed');
+        });
+    }
+}
+
+function hidePopup() {
+    popup.style.display = 'none';
+    popupContent.innerHTML = '';
+    overlay.classList.remove('active');
+}
+
+overlay.addEventListener('click', hidePopup);
+
+document.querySelectorAll('.post-box').forEach(element => {
+    element.addEventListener('click', () => {
+        const img = element.querySelector('img');
+        if (img) {
+            showPopup(`<img src="${img.src}" alt="Popup Image">`);
+        }
+    });
+});
+        </script>
+    </body>
+</html>
